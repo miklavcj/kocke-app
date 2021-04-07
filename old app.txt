@@ -1,31 +1,64 @@
-<template>
+<v-app id="inspire">
+    <v-navigation-drawer v-model="drawer" app>
+      <!--  -->
+    </v-navigation-drawer>
 
-  <div id="app">
-    <b-container>
-      <b-row>
-        <b-col><numbers :numbers="numbersDown"></numbers></b-col>
-               <b-col><numbers :numbers="numbersMixed"></numbers></b-col>
-              <b-col><numbers :numbers="numbersUp"></numbers></b-col>
-              <b-col><numbers :numbers="numbersN"></numbers></b-col>
-      </b-row>
-      
-    </b-container>
-  </div>
-</template>
+    <v-app-bar app>
+      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
 
-<script>
-import numbers from "./components/Numbers";
+      <v-toolbar-title>Jamb</v-toolbar-title>
+    </v-app-bar>
+
+    <v-main>
+      <div id="cont">
+        <v-card elevation="8">
+          <v-container>
+            <v-row no-gutters>
+              <v-col><numbers :numbers="numbersDown"></numbers></v-col>
+              <v-col> <numbers :numbers="numbersMixed"></numbers></v-col>
+              <v-col><numbers :numbers="numbersUp"></numbers></v-col>
+              <v-col><numbers :numbers="numbersN"></numbers></v-col>
+            </v-row>
+            <!-- <div class="table">
+            
+           
+            
+            
+          </div> -->
+
+            <div class="table">
+              <min-max :min-max="minMaxDown" :numbers="numbersDown"></min-max>
+              <min-max :min-max="minMaxMixed" :numbers="numbersMixed"></min-max>
+              <min-max :min-max="minMaxUp" :numbers="numbersUp"></min-max>
+              <min-max :min-max="minMaxN" :numbers="numbersN"></min-max>
+            </div>
+
+            <div class="table">
+              <special :special="specialDown"></special>
+              <special :special="specialMixed"></special>
+              <special :special="specialUp"></special>
+              <special :special="specialN"></special></div
+          ></v-container>
+        </v-card>
+      </div>
+    </v-main>
+  </v-app>
+
+  import numbers from "./components/Numbers";
 import minMax from "./components/MinMax";
 import special from "./components/Special";
 
 export default {
-  name: 'App',
+  name: "App",
+
   components: {
-     numbers,
+    numbers,
     minMax,
     special,
   },
+
   data: () => ({
+    drawer: null,
     numbersDown: {
       storageKey: "numbersDown",
       one: null,
@@ -123,16 +156,5 @@ export default {
       sum: null,
     },
   }),
-}
+};
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
