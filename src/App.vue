@@ -1,8 +1,10 @@
 <template>
 
   <div id="app">
-    <b-container>
-      <b-row>
+    <b-container id="main-container" fluid="md"> 
+      <b-container >
+      <b-row class="no-gutters">
+        <!-- <b-col><tags :tags="numberTags"></tags></b-col> -->
         <b-col><numbers :numbers="numbersDown"></numbers></b-col>
                <b-col><numbers :numbers="numbersMixed"></numbers></b-col>
               <b-col><numbers :numbers="numbersUp"></numbers></b-col>
@@ -10,6 +12,8 @@
       </b-row>
       
     </b-container>
+    </b-container>
+    
   </div>
 </template>
 
@@ -17,6 +21,7 @@
 import numbers from "./components/Numbers";
 import minMax from "./components/MinMax";
 import special from "./components/Special";
+import tags from "./components/Tags";
 
 export default {
   name: 'App',
@@ -24,8 +29,10 @@ export default {
      numbers,
     minMax,
     special,
+    tags
   },
   data: () => ({
+    numberTags: [1,2,3,4,5,6],
     numbersDown: {
       storageKey: "numbersDown",
       one: null,
@@ -135,4 +142,6 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
+
 </style>
