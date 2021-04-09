@@ -3,8 +3,9 @@
   <div id="app">
     <b-container id="main-container" fluid="md"> 
       <b-container >
+        
       <b-row class="no-gutters">
-        <!-- <b-col><tags :tags="numberTags"></tags></b-col> -->
+        <b-col ><tags :tags="numberTags"></tags></b-col>
         <b-col><numbers :numbers="numbersDown"></numbers></b-col>
                <b-col><numbers :numbers="numbersMixed"></numbers></b-col>
               <b-col><numbers :numbers="numbersUp"></numbers></b-col>
@@ -32,7 +33,7 @@ export default {
     tags
   },
   data: () => ({
-    numberTags: [1,2,3,4,5,6],
+    numberTags: [1,2,3,4,5,6, "Sum"],
     numbersDown: {
       storageKey: "numbersDown",
       one: null,
