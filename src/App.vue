@@ -27,6 +27,8 @@
           <b-col><special :special="specialN"></special></b-col>
         </b-row>
       </b-container>
+
+      <p>All together: {{result}}</p>
     </b-container>
   </div>
 </template>
@@ -146,6 +148,22 @@ export default {
       sum: null,
     },
   }),
+  computed: {
+    result: function ()  {
+      if( this.numbersDown.sum && this.numbersMixed.sum && this.numbersUp.sum && this.numbersN.sum &&
+          this.minMaxDown.sum && this.minMaxMixed.sum && this.minMaxUp.sum && this.minMaxN.sum &&
+          this.specialDown.sum && this.specialMixed.sum && this.specialUp.sum && this.specialN.sum
+      ) {
+        let sum = this.numbersDown.sum + this.numbersMixed.sum + this.numbersUp.sum + this.numbersN.sum +
+        this.minMaxDown.sum + this.minMaxMixed.sum + this.minMaxUp.sum + this.minMaxN.sum +
+        this.specialDown.sum + this.specialMixed.sum + this.specialUp.sum + this.specialN.sum
+      return sum;
+      }
+      
+
+}
+  },
+  
 };
 </script>
 

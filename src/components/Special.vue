@@ -41,6 +41,7 @@ export default {
         full: null,
         poker: null,
         jamb: null,
+        sum: null,
       },
     };
   },
@@ -52,6 +53,7 @@ export default {
         Number(this.spl.poker) +
         Number(this.spl.jamb);
 
+      this.spl.sum = sum;
       this.special.sum = sum;
       return sum;
     },

@@ -78,7 +78,7 @@
 
     
 
-    <div class="box">{{ numSum || "0" }}</div>
+    <div class="box" >{{ numSum || "0" }}</div>
   </div>
 </template>
 
@@ -96,8 +96,8 @@ export default {
         four: null,
         five: null,
         six: null,
+        sum: null
       },
-      selectOne: [0, 1, 2, 3, 4, 5],
     };
   },
   computed: {
@@ -113,6 +113,7 @@ export default {
       if (sum >= 60) {
         sum += 30;
       }
+      this.nms.sum = sum;
       this.numbers.sum = sum;
       return sum;
     },

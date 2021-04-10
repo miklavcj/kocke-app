@@ -23,6 +23,7 @@ export default {
       mM: {
         max: null,
         min: null,
+        sum: null
       },
     };
   },
@@ -33,6 +34,8 @@ export default {
           (Number(this.mM.max) - Number(this.mM.min)) *
           Number(this.numbers.one);
 
+        this.mM.sum = sum;
+      this.minMax.sum = sum;
         return sum;
       }
     },
