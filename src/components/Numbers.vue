@@ -2,7 +2,7 @@
   <div>
   
     <div>
-    <b-form-select v-model.number="nms.one" class="custom-select plain mb-0 text-center" >
+    <b-form-select v-model.number="nms.one" class="custom-select plain mb-0 text-center"   @change="updateObject()">
       <b-form-select-option :value="null"></b-form-select-option>
       <b-form-select-option value="0" >0</b-form-select-option>
       <b-form-select-option value="1" >1</b-form-select-option>
@@ -14,7 +14,7 @@
     </b-form-select>
      </div>
      <div>
-    <b-form-select v-model.number="nms.two" class="custom-select plain mb-0" >
+    <b-form-select v-model.number="nms.two" class="custom-select plain mb-0" @change="updateObject()" >
       <b-form-select-option :value="null"></b-form-select-option>
       <b-form-select-option value="0">0</b-form-select-option>
       <b-form-select-option value="2" >2</b-form-select-option>
@@ -26,7 +26,7 @@
     </b-form-select>
      </div>
       <div>
-    <b-form-select v-model.number="nms.three" class="custom-select plain mb-0" >
+    <b-form-select v-model.number="nms.three" class="custom-select plain mb-0" @change="updateObject()" >
       <b-form-select-option :value="null"></b-form-select-option>
       <b-form-select-option value="0">0</b-form-select-option>
       <b-form-select-option value="3" >3</b-form-select-option>
@@ -38,7 +38,7 @@
     </b-form-select>
      </div>
       <div>
-    <b-form-select v-model.number="nms.four" class="custom-select plain mb-0" >
+    <b-form-select v-model.number="nms.four" class="custom-select plain mb-0" @change="updateObject()" >
       <b-form-select-option :value="null"></b-form-select-option>
       <b-form-select-option value="0">0</b-form-select-option>
       <b-form-select-option value="4" >4</b-form-select-option>
@@ -51,7 +51,7 @@
      </div>
 
          <div>
-    <b-form-select v-model.number="nms.five" class="custom-select plain mb-0" >
+    <b-form-select v-model.number="nms.five" class="custom-select plain mb-0" @change="updateObject()" >
       <b-form-select-option :value="null"></b-form-select-option>
       <b-form-select-option value="0">0</b-form-select-option>
       <b-form-select-option value="5" >5</b-form-select-option>
@@ -64,7 +64,7 @@
      </div>
 
          <div>
-    <b-form-select v-model.number="nms.six" class="custom-select plain mb-0" >
+    <b-form-select v-model.number="nms.six" class="custom-select plain mb-0" @change="updateObject()" >
       <b-form-select-option :value="null"></b-form-select-option>
       <b-form-select-option value="0">0</b-form-select-option>
       <b-form-select-option value="6" >6</b-form-select-option>

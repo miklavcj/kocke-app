@@ -1,20 +1,26 @@
 <template>
-
   <div id="app">
-    <b-container id="main-container" fluid="md"> 
+    <b-container id="main-container">
       <b-container >
         
-      <b-row class="no-gutters">
-        <b-col ><tags :tags="numberTags"></tags></b-col>
-        <b-col><numbers :numbers="numbersDown"></numbers></b-col>
-               <b-col><numbers :numbers="numbersMixed"></numbers></b-col>
-              <b-col><numbers :numbers="numbersUp"></numbers></b-col>
-              <b-col><numbers :numbers="numbersN"></numbers></b-col>
-      </b-row>
+        <b-row class="no-gutters mb-3">
+          <b-col><tags :tags="numberTags"></tags></b-col>
+          <b-col><numbers :numbers="numbersDown"></numbers></b-col>
+          <b-col><numbers :numbers="numbersMixed"></numbers></b-col>
+          <b-col><numbers :numbers="numbersUp"></numbers></b-col>
+          <b-col><numbers :numbers="numbersN"></numbers></b-col>
+        </b-row>      
       
+        <b-row class="no-gutters">
+          <b-col class=""><tags :tags="minMaxTags"></tags></b-col>
+          <b-col class=""><min-max :numbers="numbersDown" :minMax="minMaxDown"></min-max></b-col>
+          <b-col class=""><min-max :numbers="numbersMixed" :minMax="minMaxMixed"></min-max></b-col>
+          <b-col class=""><min-max :numbers="numbersUp" :minMax="minMaxUp"></min-max></b-col>
+          <b-col class=""><min-max :numbers="numbersN" :minMax="minMaxN"></min-max></b-col>
+        </b-row>
+
+      </b-container>
     </b-container>
-    </b-container>
-    
   </div>
 </template>
 
@@ -25,15 +31,16 @@ import special from "./components/Special";
 import tags from "./components/Tags";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-     numbers,
+    numbers,
     minMax,
     special,
-    tags
+    tags,
   },
   data: () => ({
-    numberTags: [1,2,3,4,5,6, "Sum"],
+    numberTags: [1, 2, 3, 4, 5, 6, "Sum"],
+    minMaxTags: ["Max","min", "Sum"],
     numbersDown: {
       storageKey: "numbersDown",
       one: null,
@@ -131,7 +138,7 @@ export default {
       sum: null,
     },
   }),
-}
+};
 </script>
 
 <style>
@@ -143,6 +150,5 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
-
 
 </style>

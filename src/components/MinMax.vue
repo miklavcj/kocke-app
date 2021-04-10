@@ -1,11 +1,11 @@
 <template>
   <div>
     <div>
-      <input type="number" v-model.number="mM.max" @change="updateObject" />
+      <b-form-input  type="number"  v-model.number="mM.max" @change="updateObject()" ></b-form-input>
     </div>
 
     <div>
-      <input type="number" v-model.number="mM.min" @change="updateObject" />
+      <b-form-input  type="number"  v-model.number="mM.min" @change="updateObject()" ></b-form-input>
     </div>
 
     <div class="box">{{ minMaxSum || "0" }}</div>
@@ -33,7 +33,6 @@ export default {
           (Number(this.mM.max) - Number(this.mM.min)) *
           Number(this.numbers.one);
 
-        this.minMax.sum = sum;
         return sum;
       }
     },
@@ -56,24 +55,14 @@ export default {
 </script>
 
 <style scoped>
-.box,
-select,
-input {
+
+
+.box {
   text-align: center;
-  width: 80px;
-  height: 40px;
-  border: 1px solid black;
+  width: 100%;
+  height: 35px;
+  border: 1px solid grey;
+  border-radius: 5px;
 }
 
-select {
-  /* for Firefox */
-  -moz-appearance: none;
-  /* for Chrome */
-  -webkit-appearance: none;
-}
-
-/* For IE10 */
-select::-ms-expand {
-  display: none;
-}
 </style>
