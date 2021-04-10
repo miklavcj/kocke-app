@@ -150,9 +150,9 @@ export default {
   }),
   computed: {
     result: function ()  {
-      if( this.numbersDown.sum && this.numbersMixed.sum && this.numbersUp.sum && this.numbersN.sum &&
-          this.minMaxDown.sum && this.minMaxMixed.sum && this.minMaxUp.sum && this.minMaxN.sum &&
-          this.specialDown.sum && this.specialMixed.sum && this.specialUp.sum && this.specialN.sum
+      if( this.numbersDown.sum !== null  && this.numbersMixed.sum !== null  && this.numbersUp.sum !== null  && this.numbersN.sum !== null  &&
+          this.minMaxDown.sum !== null  && this.minMaxMixed.sum !== null  && this.minMaxUp.sum !== null  && this.minMaxN.sum !== null  &&
+          this.specialDown.sum !== null  && this.specialMixed.sum !== null  && this.specialUp.sum !== null  && this.specialN.sum !== null 
       ) {
         let sum = this.numbersDown.sum + this.numbersMixed.sum + this.numbersUp.sum + this.numbersN.sum +
         this.minMaxDown.sum + this.minMaxMixed.sum + this.minMaxUp.sum + this.minMaxN.sum +
