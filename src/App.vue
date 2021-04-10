@@ -11,14 +11,21 @@
           <b-col><numbers :numbers="numbersN"></numbers></b-col>
         </b-row>      
       
-        <b-row class="no-gutters">
-          <b-col class=""><tags :tags="minMaxTags"></tags></b-col>
-          <b-col class=""><min-max :numbers="numbersDown" :minMax="minMaxDown"></min-max></b-col>
-          <b-col class=""><min-max :numbers="numbersMixed" :minMax="minMaxMixed"></min-max></b-col>
-          <b-col class=""><min-max :numbers="numbersUp" :minMax="minMaxUp"></min-max></b-col>
-          <b-col class=""><min-max :numbers="numbersN" :minMax="minMaxN"></min-max></b-col>
+        <b-row class="no-gutters mb-3">
+          <b-col><tags :tags="minMaxTags"></tags></b-col>
+          <b-col><min-max :numbers="numbersDown" :minMax="minMaxDown"></min-max></b-col>
+          <b-col><min-max :numbers="numbersMixed" :minMax="minMaxMixed"></min-max></b-col>
+          <b-col><min-max :numbers="numbersUp" :minMax="minMaxUp"></min-max></b-col>
+          <b-col><min-max :numbers="numbersN" :minMax="minMaxN"></min-max></b-col>
         </b-row>
-
+        
+         <b-row class="no-gutters">
+          <b-col><tags :tags="specialTags"></tags></b-col>
+          <b-col><special  :special="specialDown"></special></b-col>
+          <b-col><special  :special="specialMixed"></special></b-col>
+          <b-col><special  :special="specialUp"></special></b-col>
+          <b-col><special :special="specialN"></special></b-col>
+        </b-row>
       </b-container>
     </b-container>
   </div>
@@ -40,7 +47,8 @@ export default {
   },
   data: () => ({
     numberTags: [1, 2, 3, 4, 5, 6, "Sum"],
-    minMaxTags: ["Max","min", "Sum"],
+    minMaxTags: ["Max","Min", "Sum"],
+    specialTags: ["Kenta","Full", "Poker", "Jamb", "Sum"],
     numbersDown: {
       storageKey: "numbersDown",
       one: null,

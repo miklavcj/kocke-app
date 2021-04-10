@@ -1,25 +1,29 @@
 <template>
   <div>
-    <div>
-      <select v-model.number="spl.kenta" @change="updateObject">
-        <option>0</option>
-        <option>46</option>
-        <option>56</option>
-        <option>66</option>
-      </select>
-    </div>
 
     <div>
-      <input type="number" v-model.number="spl.full" @change="updateObject" />
+    <b-form-select v-model.number="spl.kenta" class="custom-select plain mb-0"   @change="updateObject()">
+      <b-form-select-option :value="null"></b-form-select-option>
+      <b-form-select-option value="0" >0</b-form-select-option>
+      <b-form-select-option value="46" >46</b-form-select-option>
+      <b-form-select-option value="56" >56</b-form-select-option>
+      <b-form-select-option value="66" >66</b-form-select-option>
+    </b-form-select>
+     </div>
+
+     <div>
+      <b-form-input class="input" type="number" v-model.number="spl.full" @change="updateObject()" ></b-form-input>
     </div>
 
-    <div>
-      <input type="number" v-model.number="spl.poker" @change="updateObject" />
+     <div>
+      <b-form-input class="input" type="number" v-model.number="spl.poker" @change="updateObject()" ></b-form-input>
     </div>
 
-    <div>
-      <input type="number" v-model.number="spl.jamb" @change="updateObject" />
+     <div>
+      <b-form-input class="input" type="number" v-model.number="spl.jamb" @change="updateObject()" ></b-form-input>
     </div>
+
+
 
     <div class="box">{{ splSum || "0" }}</div>
   </div>
@@ -72,24 +76,22 @@ export default {
 </script>
 
 <style scoped>
-.box,
-select,
-input {
+
+.custom-select{
+background: none !important;
+text-align: center !important;
+text-align-last:center !important;
+}
+
+.input {
   text-align: center;
-  width: 80px;
-  height: 40px;
-  border: 1px solid black;
 }
 
-select {
-  /* for Firefox */
-  -moz-appearance: none;
-  /* for Chrome */
-  -webkit-appearance: none;
-}
-
-/* For IE10 */
-select::-ms-expand {
-  display: none;
+.box {
+  text-align: center;
+  width: 100%;
+  height: 35px;
+  border: 1px solid grey;
+  border-radius: 5px;
 }
 </style>

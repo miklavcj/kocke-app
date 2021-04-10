@@ -1,11 +1,11 @@
 <template>
   <div>
     <div>
-      <b-form-input  type="number"  v-model.number="mM.max" @change="updateObject()" ></b-form-input>
+      <b-form-input class="input" type="number"  v-model.number="mM.max" @change="updateObject()" ></b-form-input>
     </div>
 
     <div>
-      <b-form-input  type="number"  v-model.number="mM.min" @change="updateObject()" ></b-form-input>
+      <b-form-input class="input" type="number"  v-model.number="mM.min" @change="updateObject()" ></b-form-input>
     </div>
 
     <div class="box">{{ minMaxSum || "0" }}</div>
@@ -56,6 +56,9 @@ export default {
 
 <style scoped>
 
+.input {
+  text-align: center;
+}
 
 .box {
   text-align: center;
