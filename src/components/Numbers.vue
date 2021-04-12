@@ -86,6 +86,7 @@
 export default {
   props: {
     numbers: Object,
+    reset: Boolean,
   },
   data: () => {
     return {
@@ -130,12 +131,28 @@ export default {
 
       localStorage.setItem(this.numbers.storageKey, JSON.stringify(this.nms));
     },
+    resetValue() {
+      for (let n in this.nms) {
+        this.nms[n] = null;
+      }
+      this.updateObject()
+      
+    }
   },
   created() {
     if (localStorage.getItem(this.numbers.storageKey))
       this.nms = JSON.parse(localStorage.getItem(this.numbers.storageKey));
     this.updateObject();
   },
+  watch: { 
+      	reset: function() { 
+          if(this.reset) {
+          this.resetValue()
+          }
+          
+        }
+  }
+
 };
 </script>
 

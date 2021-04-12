@@ -12,34 +12,34 @@
         </b-row>
         <b-row class="no-gutters mb-3">
           <b-col><tags :tags="numberTags"></tags></b-col>
-          <b-col><numbers :numbers="numbersDown"></numbers></b-col>
-          <b-col><numbers :numbers="numbersMixed"></numbers></b-col>
-          <b-col><numbers :numbers="numbersUp"></numbers></b-col>
-          <b-col><numbers :numbers="numbersN"></numbers></b-col>
+          <b-col><numbers :numbers="numbersDown" :reset="reset" ></numbers></b-col>
+          <b-col><numbers :numbers="numbersMixed" :reset="reset"></numbers></b-col>
+          <b-col><numbers :numbers="numbersUp" :reset="reset" ></numbers></b-col>
+          <b-col><numbers :numbers="numbersN" :reset="reset"></numbers></b-col>
         </b-row>
 
         <b-row class="no-gutters mb-3">
           <b-col><tags :tags="minMaxTags"></tags></b-col>
           <b-col
-            ><min-max :numbers="numbersDown" :minMax="minMaxDown"></min-max
+            ><min-max :numbers="numbersDown" :minMax="minMaxDown"  :reset="reset"></min-max
           ></b-col>
           <b-col
-            ><min-max :numbers="numbersMixed" :minMax="minMaxMixed"></min-max
+            ><min-max :numbers="numbersMixed" :minMax="minMaxMixed"  :reset="reset"></min-max
           ></b-col>
           <b-col
-            ><min-max :numbers="numbersUp" :minMax="minMaxUp"></min-max
+            ><min-max :numbers="numbersUp" :minMax="minMaxUp"  :reset="reset"></min-max
           ></b-col>
           <b-col
-            ><min-max :numbers="numbersN" :minMax="minMaxN"></min-max
+            ><min-max :numbers="numbersN" :minMax="minMaxN"  :reset="reset"></min-max
           ></b-col>
         </b-row>
 
         <b-row class="no-gutters mb-3">
           <b-col><tags :tags="specialTags"></tags></b-col>
-          <b-col><special :special="specialDown"></special></b-col>
-          <b-col><special :special="specialMixed"></special></b-col>
-          <b-col><special :special="specialUp"></special></b-col>
-          <b-col><special :special="specialN"></special></b-col>
+          <b-col><special :special="specialDown"  :reset="reset"></special></b-col>
+          <b-col><special :special="specialMixed"  :reset="reset"></special></b-col>
+          <b-col><special :special="specialUp"  :reset="reset"></special></b-col>
+          <b-col><special :special="specialN"  :reset="reset"></special></b-col>
         </b-row>
 
         <b-row class="no-gutters">
@@ -105,6 +105,7 @@ export default {
     tags,
   },
   data: () => ({
+    reset: false,
     numberTags: [1, 2, 3, 4, 5, 6, "Sum"],
     minMaxTags: ["Max", "Min", "Sum"],
     specialTags: ["Kenta", "Full", "Poker", "Jamb", "Sum"],
@@ -248,19 +249,11 @@ export default {
 
     newGame() {
       console.log("A new game will be started")
-      this.numbersDown = {
-        storageKey: "numbersDown",
-      one: null,
-      two: null,
-      three: null,
-      four: null,
-      five: null,
-      six: null,
-      sum: null,
-
-      }
+      this.reset = true
+      setTimeout(() => { this.reset = false }, 1000);
       
-    }
+    },
+    
   },
 };
 </script>

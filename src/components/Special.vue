@@ -33,6 +33,7 @@
 export default {
   props: {
     special: Object,
+    reset: Boolean
   },
   data() {
     return {
@@ -68,12 +69,24 @@ export default {
 
       localStorage.setItem(this.special.storageKey, JSON.stringify(this.spl));
     },
+    resetValue() {
+      for (let n in this.nms) {
+        this.nms[n] = null;
+      }
+      this.updateObject()
+      
+    }
   },
   created() {
     if (localStorage.getItem(this.special.storageKey))
       this.spl = JSON.parse(localStorage.getItem(this.special.storageKey));
     this.updateObject();
   },
+  watch: { 
+      	reset: function() { 
+          this.resetValue()
+        }
+  }
 };
 </script>
 

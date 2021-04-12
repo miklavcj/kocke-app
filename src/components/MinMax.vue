@@ -17,6 +17,7 @@ export default {
   props: {
     numbers: Object,
     minMax: Object,
+    reset: Boolean
   },
   data() {
     return {
@@ -48,12 +49,24 @@ export default {
 
       localStorage.setItem(this.minMax.storageKey, JSON.stringify(this.mM));
     },
+    resetValue() {
+      for (let n in this.nms) {
+        this.nms[n] = null;
+      }
+      this.updateObject()
+      
+    }
   },
   created() {
     if (localStorage.getItem(this.minMax.storageKey))
       this.mM = JSON.parse(localStorage.getItem(this.minMax.storageKey));
     this.updateObject();
   },
+  watch: { 
+      	reset: function() { 
+          this.resetValue()
+        }
+  }
 };
 </script>
 
