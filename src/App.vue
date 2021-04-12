@@ -2,6 +2,14 @@
   <div id="app">
     <b-container id="main-container">
       <b-container>
+        <b-row class="no-gutters ">
+           <b-col ></b-col>
+          <b-col class="box d-flex align-items-center justify-content-center"> <b-icon-arrow-down></b-icon-arrow-down></b-col>
+          <b-col class="box d-flex align-items-center justify-content-center"> <b-icon-arrow-down-up></b-icon-arrow-down-up></b-col>
+          <b-col class="box d-flex align-items-center justify-content-center"> <b-icon-arrow-up></b-icon-arrow-up></b-col>
+          <b-col class="box d-flex align-items-center justify-content-center">N</b-col>
+
+        </b-row>
         <b-row class="no-gutters mb-3">
           <b-col><tags :tags="numberTags"></tags></b-col>
           <b-col><numbers :numbers="numbersDown"></numbers></b-col>
@@ -26,19 +34,23 @@
           ></b-col>
         </b-row>
 
-        <b-row class="no-gutters">
+        <b-row class="no-gutters mb-3">
           <b-col><tags :tags="specialTags"></tags></b-col>
           <b-col><special :special="specialDown"></special></b-col>
           <b-col><special :special="specialMixed"></special></b-col>
           <b-col><special :special="specialUp"></special></b-col>
           <b-col><special :special="specialN"></special></b-col>
         </b-row>
+
+        <b-row class="no-gutters">
+        <b-col class="box d-flex align-items-center justify-content-center">Result</b-col>
+        <b-col class="box d-flex align-items-center justify-content-center">{{ result }}</b-col>
+      </b-row>
       </b-container>
 
-      <p>All together: {{ result }}</p>
+      
 
-
-      <div>
+      <div class="mt-4">
         <div>
           <b-button  id="show-btn" @click="$bvModal.show('modal-center')"
             >Start a new game</b-button
@@ -53,13 +65,13 @@
                <b-button
               class="mt-3 col-4 offset-1"
               block
-              @click="$bvModal.hide('bv-modal-example')"
+              @click="$bvModal.hide('modal-center'); newGame() "
               >New game</b-button>
 
                <b-button
               class="mt-3 col-4 offset-2"
               block
-              @click="$bvModal.hide('bv-modal-example')"
+              @click="$bvModal.hide('modal-center')"
               >Close</b-button
             >
             </b-row>
@@ -72,6 +84,8 @@
 </template>
 
 <script>
+import { BIcon, BIconArrowUp, BIconArrowDown, BIconArrowDownUp } from 'bootstrap-vue'
+
 import numbers from "./components/Numbers";
 import minMax from "./components/MinMax";
 import special from "./components/Special";
@@ -80,6 +94,10 @@ import tags from "./components/Tags";
 export default {
   name: "App",
   components: {
+     BIcon,
+    BIconArrowUp,
+    BIconArrowDown,
+    BIconArrowDownUp,
     numbers,
     minMax,
     special,
@@ -226,6 +244,10 @@ export default {
       }
       return true;
     },
+
+    newGame() {
+      console.log("A new game will be started")
+    }
   },
 };
 </script>
@@ -238,5 +260,13 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.box {
+  text-align: center;
+  width: 100%;
+  height: 35px;
+  border: 1px solid grey;
+  border-radius: 5px;
 }
 </style>
