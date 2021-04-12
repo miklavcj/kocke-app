@@ -1,34 +1,72 @@
 <template>
   <div id="app">
     <b-container id="main-container">
-      <b-container >
-        
+      <b-container>
         <b-row class="no-gutters mb-3">
           <b-col><tags :tags="numberTags"></tags></b-col>
           <b-col><numbers :numbers="numbersDown"></numbers></b-col>
           <b-col><numbers :numbers="numbersMixed"></numbers></b-col>
           <b-col><numbers :numbers="numbersUp"></numbers></b-col>
           <b-col><numbers :numbers="numbersN"></numbers></b-col>
-        </b-row>      
-      
+        </b-row>
+
         <b-row class="no-gutters mb-3">
           <b-col><tags :tags="minMaxTags"></tags></b-col>
-          <b-col><min-max :numbers="numbersDown" :minMax="minMaxDown"></min-max></b-col>
-          <b-col><min-max :numbers="numbersMixed" :minMax="minMaxMixed"></min-max></b-col>
-          <b-col><min-max :numbers="numbersUp" :minMax="minMaxUp"></min-max></b-col>
-          <b-col><min-max :numbers="numbersN" :minMax="minMaxN"></min-max></b-col>
+          <b-col
+            ><min-max :numbers="numbersDown" :minMax="minMaxDown"></min-max
+          ></b-col>
+          <b-col
+            ><min-max :numbers="numbersMixed" :minMax="minMaxMixed"></min-max
+          ></b-col>
+          <b-col
+            ><min-max :numbers="numbersUp" :minMax="minMaxUp"></min-max
+          ></b-col>
+          <b-col
+            ><min-max :numbers="numbersN" :minMax="minMaxN"></min-max
+          ></b-col>
         </b-row>
-        
-         <b-row class="no-gutters">
+
+        <b-row class="no-gutters">
           <b-col><tags :tags="specialTags"></tags></b-col>
-          <b-col><special  :special="specialDown"></special></b-col>
-          <b-col><special  :special="specialMixed"></special></b-col>
-          <b-col><special  :special="specialUp"></special></b-col>
+          <b-col><special :special="specialDown"></special></b-col>
+          <b-col><special :special="specialMixed"></special></b-col>
+          <b-col><special :special="specialUp"></special></b-col>
           <b-col><special :special="specialN"></special></b-col>
         </b-row>
       </b-container>
 
-      <p>All together: {{result}}</p>
+      <p>All together: {{ result }}</p>
+
+
+      <div>
+        <div>
+          <b-button  id="show-btn" @click="$bvModal.show('modal-center')"
+            >Start a new game</b-button
+          >
+
+          <b-modal  id="modal-center" centered hide-footer hide-header>
+            
+            <div class="d-block text-center">
+              <h3>Do you want to start a new game?</h3>
+            </div>
+            <b-row>
+               <b-button
+              class="mt-3 col-4 offset-1"
+              block
+              @click="$bvModal.hide('bv-modal-example')"
+              >New game</b-button>
+
+               <b-button
+              class="mt-3 col-4 offset-2"
+              block
+              @click="$bvModal.hide('bv-modal-example')"
+              >Close</b-button
+            >
+            </b-row>
+           
+          </b-modal>
+        </div>
+      </div>
     </b-container>
   </div>
 </template>
@@ -49,8 +87,8 @@ export default {
   },
   data: () => ({
     numberTags: [1, 2, 3, 4, 5, 6, "Sum"],
-    minMaxTags: ["Max","Min", "Sum"],
-    specialTags: ["Kenta","Full", "Poker", "Jamb", "Sum"],
+    minMaxTags: ["Max", "Min", "Sum"],
+    specialTags: ["Kenta", "Full", "Poker", "Jamb", "Sum"],
     numbersDown: {
       storageKey: "numbersDown",
       one: null,
@@ -149,21 +187,46 @@ export default {
     },
   }),
   computed: {
-    result: function ()  {
-      if( this.numbersDown.sum !== null  && this.numbersMixed.sum !== null  && this.numbersUp.sum !== null  && this.numbersN.sum !== null  &&
-          this.minMaxDown.sum !== null  && this.minMaxMixed.sum !== null  && this.minMaxUp.sum !== null  && this.minMaxN.sum !== null  &&
-          this.specialDown.sum !== null  && this.specialMixed.sum !== null  && this.specialUp.sum !== null  && this.specialN.sum !== null 
+    result: function() {
+      if (
+        this.allFull(this.numbersDown) &&
+        this.allFull(this.numbersMixed) &&
+        this.allFull(this.numbersUp) &&
+        this.allFull(this.numbersN) &&
+        this.allFull(this.minMaxDown) &&
+        this.allFull(this.minMaxMixed) &&
+        this.allFull(this.minMaxUp) &&
+        this.allFull(this.minMaxN) &&
+        this.allFull(this.specialDown) &&
+        this.allFull(this.specialMixed) &&
+        this.allFull(this.specialUp) &&
+        this.allFull(this.specialN)
       ) {
-        let sum = this.numbersDown.sum + this.numbersMixed.sum + this.numbersUp.sum + this.numbersN.sum +
-        this.minMaxDown.sum + this.minMaxMixed.sum + this.minMaxUp.sum + this.minMaxN.sum +
-        this.specialDown.sum + this.specialMixed.sum + this.specialUp.sum + this.specialN.sum
-      return sum;
+        let sum =
+          this.numbersDown.sum +
+          this.numbersMixed.sum +
+          this.numbersUp.sum +
+          this.numbersN.sum +
+          this.minMaxDown.sum +
+          this.minMaxMixed.sum +
+          this.minMaxUp.sum +
+          this.minMaxN.sum +
+          this.specialDown.sum +
+          this.specialMixed.sum +
+          this.specialUp.sum +
+          this.specialN.sum;
+        return sum;
       }
-      
-
-}
+    },
   },
-  
+  methods: {
+    allFull(obj) {
+      for (var o in obj) {
+        if (!obj[o]) return false;
+      }
+      return true;
+    },
+  },
 };
 </script>
 
@@ -176,5 +239,4 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
-
 </style>

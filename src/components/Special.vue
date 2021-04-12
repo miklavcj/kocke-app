@@ -16,7 +16,7 @@
     </div>
 
      <div>
-      <b-form-input class="input" type="number" v-model.number="spl.poker" @change="updateObject()" ></b-form-input>
+      <b-form-input class="input" type="number" v-model.number="spl.poker" @change="updateObject()" > </b-form-input>
     </div>
 
      <div>
@@ -25,7 +25,7 @@
 
 
 
-    <div class="box">{{ splSum || "0" }}</div>
+    <div class="box">{{ splSum || 0 }}</div>
   </div>
 </template>
 

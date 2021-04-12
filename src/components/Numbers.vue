@@ -78,7 +78,7 @@
 
     
 
-    <div class="box" >{{ numSum || "0" }}</div>
+    <div class="box" >{{ numSum || 0 }}</div>
   </div>
 </template>
 
