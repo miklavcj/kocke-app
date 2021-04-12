@@ -50,8 +50,8 @@ export default {
       localStorage.setItem(this.minMax.storageKey, JSON.stringify(this.mM));
     },
     resetValue() {
-      for (let n in this.nms) {
-        this.nms[n] = null;
+      for (let n in this.mM) {
+        this.mM[n] = null;
       }
       this.updateObject()
       
@@ -64,7 +64,9 @@ export default {
   },
   watch: { 
       	reset: function() { 
+          if(this.reset) {
           this.resetValue()
+          }
         }
   }
 };

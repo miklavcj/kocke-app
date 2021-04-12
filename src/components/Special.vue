@@ -70,8 +70,8 @@ export default {
       localStorage.setItem(this.special.storageKey, JSON.stringify(this.spl));
     },
     resetValue() {
-      for (let n in this.nms) {
-        this.nms[n] = null;
+      for (let n in this.spl) {
+        this.spl[n] = null;
       }
       this.updateObject()
       
@@ -84,7 +84,9 @@ export default {
   },
   watch: { 
       	reset: function() { 
+          if(this.reset) {
           this.resetValue()
+          }
         }
   }
 };
