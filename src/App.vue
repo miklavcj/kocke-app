@@ -3,79 +3,114 @@
     <b-container id="main-container">
       <b-container>
         <b-row class="no-gutters ">
-           <b-col ></b-col>
-          <b-col class="box d-flex align-items-center justify-content-center"> <b-icon-arrow-down></b-icon-arrow-down></b-col>
-          <b-col class="box d-flex align-items-center justify-content-center"> <b-icon-arrow-down-up></b-icon-arrow-down-up></b-col>
-          <b-col class="box d-flex align-items-center justify-content-center"> <b-icon-arrow-up></b-icon-arrow-up></b-col>
-          <b-col class="box d-flex align-items-center justify-content-center">N</b-col>
-
+          <b-col></b-col>
+          <b-col class="box d-flex align-items-center justify-content-center">
+            <b-icon-arrow-down></b-icon-arrow-down
+          ></b-col>
+          <b-col class="box d-flex align-items-center justify-content-center">
+            <b-icon-arrow-down-up></b-icon-arrow-down-up
+          ></b-col>
+          <b-col class="box d-flex align-items-center justify-content-center">
+            <b-icon-arrow-up></b-icon-arrow-up
+          ></b-col>
+          <b-col class="box d-flex align-items-center justify-content-center"
+            >N</b-col
+          >
         </b-row>
         <b-row class="no-gutters mb-3">
           <b-col><tags :tags="numberTags"></tags></b-col>
-          <b-col><numbers :numbers="numbersDown" :reset="reset" ></numbers></b-col>
-          <b-col><numbers :numbers="numbersMixed" :reset="reset"></numbers></b-col>
-          <b-col><numbers :numbers="numbersUp" :reset="reset" ></numbers></b-col>
+          <b-col
+            ><numbers :numbers="numbersDown" :reset="reset"></numbers
+          ></b-col>
+          <b-col
+            ><numbers :numbers="numbersMixed" :reset="reset"></numbers
+          ></b-col>
+          <b-col><numbers :numbers="numbersUp" :reset="reset"></numbers></b-col>
           <b-col><numbers :numbers="numbersN" :reset="reset"></numbers></b-col>
         </b-row>
 
         <b-row class="no-gutters mb-3">
           <b-col><tags :tags="minMaxTags"></tags></b-col>
           <b-col
-            ><min-max :numbers="numbersDown" :minMax="minMaxDown"  :reset="reset"></min-max
+            ><min-max
+              :numbers="numbersDown"
+              :minMax="minMaxDown"
+              :reset="reset"
+            ></min-max
           ></b-col>
           <b-col
-            ><min-max :numbers="numbersMixed" :minMax="minMaxMixed"  :reset="reset"></min-max
+            ><min-max
+              :numbers="numbersMixed"
+              :minMax="minMaxMixed"
+              :reset="reset"
+            ></min-max
           ></b-col>
           <b-col
-            ><min-max :numbers="numbersUp" :minMax="minMaxUp"  :reset="reset"></min-max
+            ><min-max
+              :numbers="numbersUp"
+              :minMax="minMaxUp"
+              :reset="reset"
+            ></min-max
           ></b-col>
           <b-col
-            ><min-max :numbers="numbersN" :minMax="minMaxN"  :reset="reset"></min-max
+            ><min-max
+              :numbers="numbersN"
+              :minMax="minMaxN"
+              :reset="reset"
+            ></min-max
           ></b-col>
         </b-row>
 
         <b-row class="no-gutters mb-3">
           <b-col><tags :tags="specialTags"></tags></b-col>
-          <b-col><special :special="specialDown"  :reset="reset"></special></b-col>
-          <b-col><special :special="specialMixed"  :reset="reset"></special></b-col>
-          <b-col><special :special="specialUp"  :reset="reset"></special></b-col>
-          <b-col><special :special="specialN"  :reset="reset"></special></b-col>
+          <b-col
+            ><special :special="specialDown" :reset="reset"></special
+          ></b-col>
+          <b-col
+            ><special :special="specialMixed" :reset="reset"></special
+          ></b-col>
+          <b-col><special :special="specialUp" :reset="reset"></special></b-col>
+          <b-col><special :special="specialN" :reset="reset"></special></b-col>
         </b-row>
 
         <b-row class="no-gutters">
-        <b-col class="box d-flex align-items-center justify-content-center">Result</b-col>
-        <b-col class="box d-flex align-items-center justify-content-center">{{ result }}</b-col>
-      </b-row>
+          <b-col class="box d-flex align-items-center justify-content-center"
+            >Result</b-col
+          >
+          <b-col class="box d-flex align-items-center justify-content-center">{{
+            result
+          }}</b-col>
+        </b-row>
       </b-container>
-
-      
 
       <div class="mt-4">
         <div>
-          <b-button  id="show-btn" @click="$bvModal.show('modal-center')"
+          <b-button id="show-btn" @click="$bvModal.show('modal-center')"
             >Start a new game</b-button
           >
 
-          <b-modal  id="modal-center" centered hide-footer hide-header>
-            
+          <b-modal id="modal-center" centered hide-footer hide-header>
             <div class="d-block text-center">
               <h3>Do you want to start a new game?</h3>
             </div>
             <b-row>
-               <b-button
-              class="mt-3 col-4 offset-1"
-              block
-              @click="$bvModal.hide('modal-center'); newGame() "
-              >New game</b-button>
+              <b-button
+                class="mt-3 col-4 offset-1"
+                block
+                @click="
+                  $bvModal.hide('modal-center');
+                  newGame();
+                "
+                >New game</b-button
+              >
 
-               <b-button
-              class="mt-3 col-4 offset-2"
-              block
-              @click="$bvModal.hide('modal-center')"
-              >Close</b-button
-            >
+              <b-button
+                class="mt-3 col-4 offset-2"
+                block
+                @click="$bvModal.hide('modal-center')"
+                >Close</b-button
+              >
             </b-row>
-           
           </b-modal>
         </div>
       </div>
@@ -251,9 +286,21 @@ export default {
       console.log("A new game will be started")
       this.reset = true
       setTimeout(() => { this.reset = false }, 1000);
-      
+
     },
-    
+    async requestWakeLock() {
+       try {
+        const wakeLock = await navigator.wakeLock.request('screen');
+        console.log("WakeLock:", wakeLock)
+      } catch (err) {
+    console.log(`${err.name}, ${err.message}`);
+      }
+    }
+
+  },
+  created() {
+  this.requestWakeLock()
+
   },
 };
 </script>
