@@ -98,6 +98,8 @@ export default {
 background: none !important;
 text-align: center !important;
 text-align-last:center !important;
+padding-left: 1.25rem !important;
+padding-right: 1.25rem !important;
 }
 
 .input {
