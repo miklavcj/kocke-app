@@ -25,7 +25,7 @@
 
 
 
-    <div class="box">{{ splSum || 0 }}</div>
+    <div class="box d-flex align-items-center justify-content-center">{{ splSum || 0 }}</div>
   </div>
 </template>
 

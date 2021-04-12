@@ -2,7 +2,7 @@
   <div>
   
     <div>
-    <b-form-select v-model.number="nms.one" class="custom-select plain mb-0"   @change="updateObject()">
+    <b-form-select v-model.number="nms.one" class="custom-select1 plain mb-0"   @change="updateObject()">
       <b-form-select-option :value="null"></b-form-select-option>
       <b-form-select-option value="0" >0</b-form-select-option>
       <b-form-select-option value="1" >1</b-form-select-option>
@@ -78,7 +78,7 @@
 
     
 
-    <div class="box" >{{ numSum || 0 }}</div>
+    <div class="box d-flex align-items-center justify-content-center" >{{ numSum || 0 }}</div>
   </div>
 </template>
 
@@ -141,10 +141,12 @@ export default {
 
 <style scoped>
 
-.custom-select{
+.custom-select {
 background: none !important;
 text-align: center !important;
 text-align-last:center !important;
+padding-left: 1.25rem !important;
+padding-right: 1.25rem !important;
 }
 
 .box {

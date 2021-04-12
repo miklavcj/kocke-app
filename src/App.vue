@@ -91,6 +91,7 @@ import minMax from "./components/MinMax";
 import special from "./components/Special";
 import tags from "./components/Tags";
 
+
 export default {
   name: "App",
   components: {
@@ -247,6 +248,18 @@ export default {
 
     newGame() {
       console.log("A new game will be started")
+      this.numbersDown = {
+        storageKey: "numbersDown",
+      one: null,
+      two: null,
+      three: null,
+      four: null,
+      five: null,
+      six: null,
+      sum: null,
+
+      }
+      
     }
   },
 };
