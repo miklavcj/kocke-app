@@ -6,7 +6,7 @@
 
 <!-- Tooltip for numbers sum -->
       <b-tooltip target="numbers-Sum" triggers="hover" placement="bottomright">
-    If Σ > 60 => Σ + 30
+    If Σ ≥ 60 => Σ + 30
   </b-tooltip>
 
 <!-- Tooltip for MinMax sum -->
