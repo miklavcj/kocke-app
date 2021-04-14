@@ -18,7 +18,7 @@
           >
         </b-row>
         <b-row class="no-gutters mb-3">
-          <b-col><tags :tags="numberTags"></tags></b-col>
+          <b-col><tags :tags="numberTags" :title="numTitle"></tags></b-col>
           <b-col
             ><numbers :numbers="numbersDown" :reset="reset"></numbers
           ></b-col>
@@ -30,7 +30,7 @@
         </b-row>
 
         <b-row class="no-gutters mb-3">
-          <b-col><tags :tags="minMaxTags"></tags></b-col>
+          <b-col><tags :tags="minMaxTags" :title="mMTitle"></tags></b-col>
           <b-col
             ><min-max
               :numbers="numbersDown"
@@ -62,7 +62,7 @@
         </b-row>
 
         <b-row class="no-gutters mb-3">
-          <b-col><tags :tags="specialTags"></tags></b-col>
+          <b-col><tags :tags="specialTags" :title="splTitle"></tags></b-col>
           <b-col
             ><special :special="specialDown" :reset="reset"></special
           ></b-col>
@@ -141,6 +141,9 @@ export default {
   },
   data: () => ({
     reset: false,
+    numTitle: "numbers",
+    mMTitle: "minMax",
+    splTitle: "special",
     numberTags: [1, 2, 3, 4, 5, 6, "Sum"],
     minMaxTags: ["Max", "Min", "Sum"],
     specialTags: ["Kenta", "Full", "Poker", "Jamb", "Sum"],

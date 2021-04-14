@@ -78,7 +78,8 @@
 
     
 
-    <div class="box d-flex align-items-center justify-content-center" >{{ numSum || 0 }}</div>
+    <div class="box d-flex align-items-center justify-content-center">{{ numSum || 0 }}</div>
+
   </div>
 </template>
 
@@ -169,6 +170,7 @@ padding-right: 1.25rem !important;
 .box {
   text-align: center;
   width: 100%;
+  height: calc(1.5em + .75rem + 2px) !important;
   height: 35px;
   border: 1px solid grey;
   border-radius: 5px;
