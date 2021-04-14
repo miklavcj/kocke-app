@@ -12,15 +12,15 @@
      </div>
 
      <div>
-      <b-form-input class="input" type="number" v-model.number="spl.full" @change="updateObject()" ></b-form-input>
+      <b-form-input class="input" type="number" v-model.number="spl.full" @change="updateFull()" ></b-form-input>
     </div>
 
      <div>
-      <b-form-input class="input" type="number" v-model.number="spl.poker" @change="updateObject()" > </b-form-input>
+      <b-form-input class="input" type="number" v-model.number="spl.poker" @change="updatePoker()" > </b-form-input>
     </div>
 
      <div>
-      <b-form-input class="input" type="number" v-model.number="spl.jamb" @change="updateObject()" ></b-form-input>
+      <b-form-input class="input" type="number" v-model.number="spl.jamb" @change="updateJamb()" ></b-form-input>
     </div>
 
 
@@ -68,6 +68,21 @@ export default {
       this.special.sum = this.splSum;
 
       localStorage.setItem(this.special.storageKey, JSON.stringify(this.spl));
+    },
+    updateFull() {
+      this.spl.full = Number(this.spl.full) + 30;
+      this.updateObject()
+
+    },
+     updatePoker() {
+      this.spl.poker = Number(this.spl.poker) + 40;
+      this.updateObject()
+
+    },
+     updateJamb() {
+      this.spl.jamb = Number(this.spl.jamb) + 50;
+      this.updateObject()
+
     },
     resetValue() {
       for (let n in this.spl) {
