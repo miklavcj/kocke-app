@@ -70,16 +70,25 @@ export default {
       localStorage.setItem(this.special.storageKey, JSON.stringify(this.spl));
     },
     updateFull() {
+      if(this.spl.full === 0) {
+         return
+       }
       this.spl.full = Number(this.spl.full) + 30;
       this.updateObject()
 
     },
      updatePoker() {
+       if(this.spl.poker === 0) {
+         return
+       }
       this.spl.poker = Number(this.spl.poker) + 40;
       this.updateObject()
 
     },
      updateJamb() {
+       if(this.spl.jamb === 0) {
+         return
+       }
       this.spl.jamb = Number(this.spl.jamb) + 50;
       this.updateObject()
 
