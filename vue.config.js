@@ -5,7 +5,8 @@ module.exports = {
       pwa: {
   name: "Kocke",
   short_name: "Kocke",
-  theme_color: "#4DBA87",
+  themeColor: "#ffffff",
+  msTileColor: '#ffffff',
   "icons": [
       {
           "src": "./img/icons/kocke.png",
@@ -14,8 +15,8 @@ module.exports = {
       },
   ],
   start_url: ".",
-  display: "standalone",
-  background_color: "#ffffff"
+  display: "fullscreen",
+  backgroundColor: "#ffffff"
 }
     
       
