@@ -15,8 +15,12 @@ module.exports = {
       },
   ],
   start_url: ".",
-  display: "fullscreen",
-  backgroundColor: "#ffffff"
+  manifestOptions: {
+    background_color: "#ffffff",
+    display: "fullscreen",
+  }
+  
+  
 }
     
       
