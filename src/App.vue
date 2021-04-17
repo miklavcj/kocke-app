@@ -359,7 +359,7 @@ export default {
 
 .box {
   background: #ae8500;
-  opacity: 0.75;
+  opacity: 1;
   text-align: center;
   width: 100%;
   border-radius: 5px;
@@ -385,7 +385,7 @@ export default {
 .box-final {
   color: #fff;
   background: #ae8500;
-  opacity: 0.75;
+  opacity: 1;
   text-align: center;
   width: 100%;
   border-radius: 5px;

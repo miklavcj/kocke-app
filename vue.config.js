@@ -9,7 +9,7 @@ module.exports = {
   msTileColor: '#ffffff',
   "icons": [
       {
-          "src": "./img/icons/kocke.png",
+          "src": "./img/kocke-logo-final.png",
           "sizes": "512x512 192x192",
           "type": "image/png"
       },
