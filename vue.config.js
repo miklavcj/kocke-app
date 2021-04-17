@@ -10,7 +10,7 @@ module.exports = {
   "icons": [
       {
           "src": "./img/icons/kocke.png",
-          "sizes": "512x512, 192x192",
+          "sizes": "512x512 192x192",
           "type": "image/png"
       },
   ],

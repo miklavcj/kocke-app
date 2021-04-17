@@ -128,7 +128,7 @@
             </div>
               <div class="d-flex align-items-center justify-content-around">
                 <b-button id="btn-yes"
-                class="mt-3 px-0"
+                class="mt-3 px-1"
                 block
                 @click="
                   $bvModal.hide('modal-center');
@@ -138,7 +138,7 @@
               >
 
               <b-button id="btn-no"
-                class="mt-3 px-0"
+                class="mt-3 px-1"
                 block
                 @click="$bvModal.hide('modal-center')"
                 >NO, CANCEL</b-button
@@ -403,20 +403,20 @@ export default {
 }
 
 #btn-yes {
-  width: 40%;
+  width: 45%;
   color: #fff;
   background: #ae8500;
   font-weight: 700;
-  font-size: .8rem;
+  font-size: 1.05rem;
   border: none;
 }
 
 #btn-no {
-   width: 40%;
+   width: 45%;
   background: #69747D;
   opacity: .5 ;
   font-weight: 700;
-  font-size: .8rem;
+  font-size: 1.05rem;
   border: none;
 }
 </style>
