@@ -101,10 +101,10 @@
         </b-row>
 
         <b-row class="no-gutters">
-          <b-col class="final d-flex align-items-center justify-content-center  col-5"
+          <b-col class="final d-flex align-items-center pl-2 col-5"
             >FINAL RESULT</b-col
           >
-          <b-col class="box-final d-flex align-items-center justify-content-center mr-2   ">{{
+          <b-col class="box-final d-flex align-items-center justify-content-center mr-2  ">{{
             result
           }}</b-col>
 
