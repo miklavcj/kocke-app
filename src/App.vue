@@ -104,7 +104,7 @@
           <b-col class="final d-flex align-items-center pl-2 col-5"
             >FINAL RESULT</b-col
           >
-          <b-col class="box-final d-flex align-items-center justify-content-center mr-2  ">{{
+          <b-col class="box-final d-flex align-items-center justify-content-center mr-2 ">{{
             result
           }}</b-col>
 
@@ -128,7 +128,7 @@
             </div>
               <div class="d-flex align-items-center justify-content-around">
                 <b-button id="btn-yes"
-                class="mt-3 px-1"
+                class="mt-3 px-2"
                 block
                 @click="
                   $bvModal.hide('modal-center');
@@ -409,7 +409,7 @@ export default {
   color: #fff;
   background: #ae8500;
   font-weight: 700;
-  font-size: 1.05rem;
+  font-size: 1rem;
   border: none;
 }
 
@@ -418,7 +418,7 @@ export default {
   background: #69747D;
   opacity: .5 ;
   font-weight: 700;
-  font-size: 1.05rem;
+  font-size: 1rem;
   border: none;
 }
 </style>
