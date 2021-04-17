@@ -2,57 +2,78 @@
   <div id="app">
     <b-container id="main-container">
       <b-container>
-        <b-row class="no-gutters ">
-          <b-col></b-col>
-          <b-col class="box d-flex align-items-center justify-content-center">
-            <b-icon-arrow-down></b-icon-arrow-down
+        <b-row class="no-gutters mb-2 ">
+          <b-col class="ml-1"></b-col>
+          <b-col
+            class="box-icon d-flex align-items-center justify-content-center ml-1 h5 "
+          >
+            <b-icon-arrow-down
+              style="color: #69747D; "
+              font-scale="1"
+            ></b-icon-arrow-down
           ></b-col>
-          <b-col class="box d-flex align-items-center justify-content-center">
-            <b-icon-arrow-down-up></b-icon-arrow-down-up
+          <b-col
+            class="box-icon d-flex align-items-center justify-content-center ml-1 h5"
+          >
+            <b-icon-arrow-down-up style="color: #69747D;"></b-icon-arrow-down-up
           ></b-col>
-          <b-col class="box d-flex align-items-center justify-content-center">
-            <b-icon-arrow-up></b-icon-arrow-up
+          <b-col
+            class="box-icon d-flex align-items-center justify-content-center ml-1 h5"
+          >
+            <b-icon-arrow-up
+              style="color: #69747D; font-weight: 700;"
+            ></b-icon-arrow-up
           ></b-col>
-          <b-col class="box d-flex align-items-center justify-content-center"
+          <b-col
+            class="box-icon d-flex align-items-center justify-content-center ml-1 h5"
+            style="color: #69747D;"
             >N</b-col
           >
         </b-row>
         <b-row class="no-gutters mb-3">
-          <b-col><tags :tags="numberTags" :title="numTitle"></tags></b-col>
-          <b-col
+          <b-col class="ml-1"
+            ><tags :tags="numberTags" :title="numTitle"></tags
+          ></b-col>
+          <b-col class="ml-1"
             ><numbers :numbers="numbersDown" :reset="reset"></numbers
           ></b-col>
-          <b-col
+          <b-col class="ml-1"
             ><numbers :numbers="numbersMixed" :reset="reset"></numbers
           ></b-col>
-          <b-col><numbers :numbers="numbersUp" :reset="reset"></numbers></b-col>
-          <b-col><numbers :numbers="numbersN" :reset="reset"></numbers></b-col>
+          <b-col class="ml-1"
+            ><numbers :numbers="numbersUp" :reset="reset"></numbers
+          ></b-col>
+          <b-col class="ml-1"
+            ><numbers :numbers="numbersN" :reset="reset"></numbers
+          ></b-col>
         </b-row>
 
         <b-row class="no-gutters mb-3">
-          <b-col><tags :tags="minMaxTags" :title="mMTitle"></tags></b-col>
-          <b-col
+          <b-col class="ml-1"
+            ><tags :tags="minMaxTags" :title="mMTitle"></tags
+          ></b-col>
+          <b-col class="ml-1"
             ><min-max
               :numbers="numbersDown"
               :minMax="minMaxDown"
               :reset="reset"
             ></min-max
           ></b-col>
-          <b-col
+          <b-col class="ml-1"
             ><min-max
               :numbers="numbersMixed"
               :minMax="minMaxMixed"
               :reset="reset"
             ></min-max
           ></b-col>
-          <b-col
+          <b-col class="ml-1"
             ><min-max
               :numbers="numbersUp"
               :minMax="minMaxUp"
               :reset="reset"
             ></min-max
           ></b-col>
-          <b-col
+          <b-col class="ml-1"
             ><min-max
               :numbers="numbersN"
               :minMax="minMaxN"
@@ -62,55 +83,68 @@
         </b-row>
 
         <b-row class="no-gutters mb-3">
-          <b-col><tags :tags="specialTags" :title="splTitle"></tags></b-col>
-          <b-col
+          <b-col class="ml-1"
+            ><tags :tags="specialTags" :title="splTitle"></tags
+          ></b-col>
+          <b-col class="ml-1"
             ><special :special="specialDown" :reset="reset"></special
           ></b-col>
-          <b-col
+          <b-col class="ml-1"
             ><special :special="specialMixed" :reset="reset"></special
           ></b-col>
-          <b-col><special :special="specialUp" :reset="reset"></special></b-col>
-          <b-col><special :special="specialN" :reset="reset"></special></b-col>
+          <b-col class="ml-1"
+            ><special :special="specialUp" :reset="reset"></special
+          ></b-col>
+          <b-col class="ml-1"
+            ><special :special="specialN" :reset="reset"></special
+          ></b-col>
         </b-row>
 
         <b-row class="no-gutters">
-          <b-col class="box d-flex align-items-center justify-content-center"
-            >Result</b-col
+          <b-col class="final d-flex align-items-center justify-content-center col-5"
+            >FINAL RESULT</b-col
           >
-          <b-col class="box d-flex align-items-center justify-content-center">{{
+          <b-col class="box-final d-flex align-items-center justify-content-center  col-4">{{
             result
           }}</b-col>
+
+          <b-col  class="col-2 offset-1">
+            <b-button id="show-btn" @click="$bvModal.show('modal-center')"
+            ><b-icon-arrow-clockwise
+              style="color: #69747D; font-weight: 700;"  variant="light"
+            ></b-icon-arrow-clockwise></b-button
+          >
+          </b-col>
         </b-row>
       </b-container>
 
       <div class="mt-4">
         <div>
-          <b-button id="show-btn" @click="$bvModal.show('modal-center')"
-            >Start a new game</b-button
-          >
+          
 
           <b-modal id="modal-center" centered hide-footer hide-header>
             <div class="d-block text-center">
               <h3>Do you want to start a new game?</h3>
             </div>
-            <b-row>
-              <b-button
-                class="mt-3 col-4 offset-1"
+              <div class="d-flex align-items-center justify-content-around">
+                <b-button id="btn-yes"
+                class="mt-3 px-0"
                 block
                 @click="
                   $bvModal.hide('modal-center');
                   newGame();
                 "
-                >New game</b-button
+                >YES, START NEW</b-button
               >
 
-              <b-button
-                class="mt-3 col-4 offset-2"
+              <b-button id="btn-no"
+                class="mt-3 px-0"
                 block
                 @click="$bvModal.hide('modal-center')"
-                >Close</b-button
+                >NO, CANCEL</b-button
               >
-            </b-row>
+              </div>
+             
           </b-modal>
         </div>
       </div>
@@ -119,21 +153,27 @@
 </template>
 
 <script>
-import { BIcon, BIconArrowUp, BIconArrowDown, BIconArrowDownUp } from 'bootstrap-vue'
+import {
+  BIcon,
+  BIconArrowUp,
+  BIconArrowDown,
+  BIconArrowDownUp,
+  BIconArrowClockwise,
+} from "bootstrap-vue";
 
 import numbers from "./components/Numbers";
 import minMax from "./components/MinMax";
 import special from "./components/Special";
 import tags from "./components/Tags";
 
-
 export default {
   name: "App",
   components: {
-     BIcon,
+    BIcon,
     BIconArrowUp,
     BIconArrowDown,
     BIconArrowDownUp,
+    BIconArrowClockwise,
     numbers,
     minMax,
     special,
@@ -144,9 +184,9 @@ export default {
     numTitle: "numbers",
     mMTitle: "minMax",
     splTitle: "special",
-    numberTags: [1, 2, 3, 4, 5, 6, "Sum"],
-    minMaxTags: ["Max", "Min", "Sum"],
-    specialTags: ["Kenta", "Full", "Poker", "Jamb", "Sum"],
+    numberTags: [1, 2, 3, 4, 5, 6, "TOTAL"],
+    minMaxTags: ["MAX", "MIN", "TOTAL"],
+    specialTags: ["KENTA", "FULL", "POKER", "JAMB", "TOTAL"],
     numbersDown: {
       storageKey: "numbersDown",
       one: null,
@@ -286,43 +326,97 @@ export default {
     },
 
     newGame() {
-      console.log("A new game will be started")
-      this.reset = true
-      setTimeout(() => { this.reset = false }, 1000);
-
+      console.log("A new game will be started");
+      this.reset = true;
+      setTimeout(() => {
+        this.reset = false;
+      }, 1000);
     },
     async requestWakeLock() {
-       try {
-        const wakeLock = await navigator.wakeLock.request('screen');
-        console.log("WakeLock:", wakeLock)
+      try {
+        const wakeLock = await navigator.wakeLock.request("screen");
+        console.log("WakeLock:", wakeLock);
       } catch (err) {
-    console.log(`${err.name}, ${err.message}`);
+        console.log(`${err.name}, ${err.message}`);
       }
-    }
-
+    },
   },
   created() {
-  this.requestWakeLock()
-
+    this.requestWakeLock();
   },
 };
 </script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Open Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #fff;
   margin-top: 60px;
 }
 
 .box {
+  background: #ae8500;
+  opacity: 0.75;
   text-align: center;
   width: 100%;
-  height: 35px;
-  border: 1px solid grey;
   border-radius: 5px;
+}
+
+.custom-select,
+.input {
+  color: #fff !important;
+  background-color: #ae8500 !important;
+  opacity: 0.4 !important;
+  font-weight: 600;
+  border: none;
+}
+
+.final {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #69747D;
+  opacity: 1 ;
+
+}
+
+.box-final {
+  color: #fff;
+  background: #ae8500;
+  opacity: 0.75;
+  text-align: center;
+  width: 100%;
+  border-radius: 5px;
+  flex-grow:1;
+}
+
+#show-btn {
+  stroke-width: 3 !important;
+}
+
+#modal-center {
+  color: #69747D;
+  opacity: 1;
+
+}
+
+#btn-yes {
+  width: 40%;
+  color: #fff;
+  background: #ae8500;
+  font-weight: 700;
+  font-size: .8rem;
+  border: none;
+}
+
+#btn-no {
+   width: 40%;
+  background: #69747D;
+  opacity: .5 ;
+  font-weight: 700;
+  font-size: .8rem;
+  border: none;
 }
 </style>

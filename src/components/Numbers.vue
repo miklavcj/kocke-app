@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div >
   
     <div>
-    <b-form-select v-model.number="nms.one" class="custom-select1 plain mb-0"   @change="updateObject()">
+    <b-form-select v-model.number="nms.one" class="custom-select1 plain mb-1"   @change="updateObject()">
       <b-form-select-option :value="null"></b-form-select-option>
       <b-form-select-option value="0" >0</b-form-select-option>
       <b-form-select-option value="1" >1</b-form-select-option>
@@ -14,7 +14,7 @@
     </b-form-select>
      </div>
      <div>
-    <b-form-select v-model.number="nms.two" class="custom-select plain mb-0" @change="updateObject()" >
+    <b-form-select v-model.number="nms.two" class="custom-select plain mb-1" @change="updateObject()" >
       <b-form-select-option :value="null"></b-form-select-option>
       <b-form-select-option value="0">0</b-form-select-option>
       <b-form-select-option value="2" >2</b-form-select-option>
@@ -26,7 +26,7 @@
     </b-form-select>
      </div>
       <div>
-    <b-form-select v-model.number="nms.three" class="custom-select plain mb-0" @change="updateObject()" >
+    <b-form-select v-model.number="nms.three" class="custom-select plain mb-1" @change="updateObject()" >
       <b-form-select-option :value="null"></b-form-select-option>
       <b-form-select-option value="0">0</b-form-select-option>
       <b-form-select-option value="3" >3</b-form-select-option>
@@ -38,7 +38,7 @@
     </b-form-select>
      </div>
       <div>
-    <b-form-select v-model.number="nms.four" class="custom-select plain mb-0" @change="updateObject()" >
+    <b-form-select v-model.number="nms.four" class="custom-select plain mb-1" @change="updateObject()" >
       <b-form-select-option :value="null"></b-form-select-option>
       <b-form-select-option value="0">0</b-form-select-option>
       <b-form-select-option value="4" >4</b-form-select-option>
@@ -51,7 +51,7 @@
      </div>
 
          <div>
-    <b-form-select v-model.number="nms.five" class="custom-select plain mb-0" @change="updateObject()" >
+    <b-form-select v-model.number="nms.five" class="custom-select plain mb-1" @change="updateObject()" >
       <b-form-select-option :value="null"></b-form-select-option>
       <b-form-select-option value="0">0</b-form-select-option>
       <b-form-select-option value="5" >5</b-form-select-option>
@@ -64,7 +64,7 @@
      </div>
 
          <div>
-    <b-form-select v-model.number="nms.six" class="custom-select plain mb-0" @change="updateObject()" >
+    <b-form-select v-model.number="nms.six" class="custom-select plain mb-1" @change="updateObject()" >
       <b-form-select-option :value="null"></b-form-select-option>
       <b-form-select-option value="0">0</b-form-select-option>
       <b-form-select-option value="6" >6</b-form-select-option>
@@ -78,7 +78,7 @@
 
     
 
-    <div class="box d-flex align-items-center justify-content-center">{{ numSum || 0 }}</div>
+    <div class="box d-flex align-items-center justify-content-center mb-1">{{ numSum || 0 }}</div>
 
   </div>
 </template>
@@ -165,6 +165,9 @@ text-align: center !important;
 text-align-last:center !important;
 padding-left: 1.25rem !important;
 padding-right: 1.25rem !important;
+color: #fff !important;
+background-color: #AE8500 !important;
+opacity: .4 !important;
 }
 
 .box {
@@ -172,7 +175,6 @@ padding-right: 1.25rem !important;
   width: 100%;
   height: calc(1.5em + .75rem + 2px) !important;
   height: 35px;
-  border: 1px solid grey;
   border-radius: 5px;
 }
 

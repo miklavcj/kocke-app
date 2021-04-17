@@ -1,14 +1,14 @@
 <template>
   <div>
     <div>
-      <b-form-input class="input" type="number"  v-model.number="mM.max" @change="updateObject()" ></b-form-input>
+      <b-form-input class="input mb-1" type="number"  v-model.number="mM.max" @change="updateObject()" ></b-form-input>
     </div>
 
     <div>
-      <b-form-input class="input" type="number"  v-model.number="mM.min" @change="updateObject()" ></b-form-input>
+      <b-form-input class="input mb-1" type="number"  v-model.number="mM.min" @change="updateObject()" ></b-form-input>
     </div>
 
-    <div class="box d-flex align-items-center justify-content-center">{{ minMaxSum || 0 }}</div>
+    <div class="box d-flex align-items-center justify-content-center mb-1">{{ minMaxSum || 0 }}</div>
   </div>
 </template>
 
@@ -82,7 +82,6 @@ export default {
   text-align: center;
   width: 100%;
   height: 35px;
-  border: 1px solid grey;
   border-radius: 5px;
 }
 

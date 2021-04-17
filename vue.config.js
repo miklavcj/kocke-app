@@ -19,9 +19,5 @@ module.exports = {
     background_color: "#ffffff",
     display: "fullscreen",
   }
-  
-  
-}
-    
-      
+}  
   }
