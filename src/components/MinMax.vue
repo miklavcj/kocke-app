@@ -1,11 +1,11 @@
 <template>
   <div>
     <div>
-      <b-form-input class="input mb-1" type="number"  v-model.number="mM.max" @change="updateObject()" ></b-form-input>
+      <b-form-input class="input mb-1" type="number"  :class="[ mM.max !== null  ? filledInput : '']"  v-model.number="mM.max" @change="updateObject()" ></b-form-input>
     </div>
 
     <div>
-      <b-form-input class="input mb-1" type="number"  v-model.number="mM.min" @change="updateObject()" ></b-form-input>
+      <b-form-input class="input mb-1" type="number" :class="[ mM.min !== null  ? filledInput : '']"  v-model.number="mM.min" @change="updateObject()" ></b-form-input>
     </div>
 
     <div class="box d-flex align-items-center justify-content-center mb-1">{{ minMaxSum || 0 }}</div>
@@ -26,6 +26,7 @@ export default {
         min: null,
         sum: null
       },
+      filledInput: "filled-input",
     };
   },
   computed: {
@@ -84,5 +85,9 @@ export default {
   height: 35px;
   border-radius: 5px;
 }
+.filled-input {
+  opacity: .7 !important;
+}
+
 
 </style>

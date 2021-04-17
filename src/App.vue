@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="mt-4">
     <b-container id="main-container">
       <b-container>
         <b-row class="no-gutters mb-2 ">
@@ -101,14 +101,14 @@
         </b-row>
 
         <b-row class="no-gutters">
-          <b-col class="final d-flex align-items-center justify-content-center col-5"
+          <b-col class="final d-flex align-items-center justify-content-center  col-5"
             >FINAL RESULT</b-col
           >
-          <b-col class="box-final d-flex align-items-center justify-content-center  col-4">{{
+          <b-col class="box-final d-flex align-items-center justify-content-center mr-2   ">{{
             result
           }}</b-col>
 
-          <b-col  class="col-2 offset-1">
+          <b-col  class="col-1 offset-1 mr-0  d-flex align-items-center justify-content-end">
             <b-button id="show-btn" @click="$bvModal.show('modal-center')"
             ><b-icon-arrow-clockwise
               style="color: #69747D; font-weight: 700;"  variant="light"
@@ -354,11 +354,11 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #fff;
-  margin-top: 60px;
 }
 
 .box {
   background: #ae8500;
+  font-weight: 700;
   opacity: 1;
   text-align: center;
   width: 100%;
@@ -384,6 +384,7 @@ export default {
 
 .box-final {
   color: #fff;
+  font-weight: 800;
   background: #ae8500;
   opacity: 1;
   text-align: center;
@@ -394,6 +395,7 @@ export default {
 
 #show-btn {
   stroke-width: 3 !important;
+  border: none;
 }
 
 #modal-center {

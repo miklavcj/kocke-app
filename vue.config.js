@@ -3,14 +3,14 @@ module.exports = {
       ? '/kocke-app/'
       : '/',
       pwa: {
-  name: "Kocke",
-  short_name: "Kocke",
+  name: "KOCKE",
+  short_name: "   ",
   themeColor: "#ffffff",
   msTileColor: '#ffffff',
   "icons": [
       {
           "src": "./img/kocke-logo-final.png",
-          "sizes": "512x512 192x192",
+          "sizes": "512x512",
           "type": "image/png"
       },
   ],

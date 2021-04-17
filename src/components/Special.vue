@@ -2,7 +2,7 @@
   <div>
 
     <div>
-    <b-form-select v-model.number="spl.kenta" class="custom-select plain mb-1"   @change="updateObject()">
+    <b-form-select v-model.number="spl.kenta" class="custom-select plain mb-1" :class="[ spl.kenta !== null  ? filledInput : '']"  @change="updateObject()">
       <b-form-select-option :value="null"></b-form-select-option>
       <b-form-select-option value="0" >0</b-form-select-option>
       <b-form-select-option value="46" >46</b-form-select-option>
@@ -12,15 +12,15 @@
      </div>
 
      <div>
-      <b-form-input class="input mb-1" type="number" v-model.number="spl.full" @change="updateFull()" ></b-form-input>
+      <b-form-input class="input mb-1" type="number" v-model.number="spl.full" :class="[ spl.full !== null  ? filledInput : '']" @change="updateFull()" ></b-form-input>
     </div>
 
      <div>
-      <b-form-input class="input mb-1" type="number" v-model.number="spl.poker" @change="updatePoker()" > </b-form-input>
+      <b-form-input class="input mb-1" type="number" v-model.number="spl.poker" :class="[ spl.poker !== null  ? filledInput : '']" @change="updatePoker()" > </b-form-input>
     </div>
 
      <div>
-      <b-form-input class="input mb-1" type="number" v-model.number="spl.jamb" @change="updateJamb()" ></b-form-input>
+      <b-form-input class="input mb-1" type="number" v-model.number="spl.jamb" :class="[ spl.jamb !== null  ? filledInput : '']" @change="updateJamb()" ></b-form-input>
     </div>
 
 
@@ -44,6 +44,7 @@ export default {
         jamb: null,
         sum: null,
       },
+      filledInput: "filled-input",
     };
   },
   computed: {
@@ -140,5 +141,9 @@ border: none;
   width: 100%;
   height: 35px;
   border-radius: 5px;
+}
+
+.filled-input {
+  opacity: .7 !important;
 }
 </style>
