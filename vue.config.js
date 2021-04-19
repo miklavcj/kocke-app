@@ -9,8 +9,8 @@ module.exports = {
   msTileColor: '#ffffff',
   icons: [
       {
-          "src": "./img/kocke-logo-final.png",
-          "sizes": "512x512",
+          "src": "./img/android-chrome-512x512.png",
+          "sizes": "512x512 192x192",
           "type": "image/png"
       },
   ],
@@ -18,6 +18,7 @@ module.exports = {
   manifestOptions: {
     background_color: "#ffffff",
     display: "standalone",
+    themeColor: "#ffffff",
   }
 }  
   }

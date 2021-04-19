@@ -104,30 +104,33 @@
           <b-col class="final d-flex align-items-center pl-2 col-5"
             >FINAL RESULT</b-col
           >
-          <b-col class="box-final d-flex align-items-center justify-content-center mr-2 ">{{
-            result
-          }}</b-col>
-
-          <b-col  class="col-1 offset-1 mr-0  d-flex align-items-center justify-content-end">
-            <b-button id="show-btn" @click="$bvModal.show('modal-center')"
-            ><b-icon-arrow-clockwise
-              style="color: #69747D; font-weight: 700;"  variant="light"
-            ></b-icon-arrow-clockwise></b-button
+          <b-col
+            class="box-final d-flex align-items-center justify-content-center mr-2 "
+            >{{ result }}</b-col
           >
+
+          <b-col
+            class="col-1 offset-1 mr-0  d-flex align-items-center justify-content-end"
+          >
+            <b-button id="show-btn" @click="$bvModal.show('modal-center')"
+              ><b-icon-arrow-clockwise
+                style="color: #69747D; font-weight: 700;"
+                variant="light"
+              ></b-icon-arrow-clockwise
+            ></b-button>
           </b-col>
         </b-row>
       </b-container>
 
       <div class="mt-4">
         <div>
-          
-
           <b-modal id="modal-center" centered hide-footer hide-header>
             <div class="d-block text-center">
               <h3>Do you want to start a new game?</h3>
             </div>
-              <div class="d-flex align-items-center justify-content-around">
-                <b-button id="btn-yes"
+            <div class="d-flex align-items-center justify-content-around">
+              <b-button
+                id="btn-yes"
                 class="mt-3 px-2"
                 block
                 @click="
@@ -137,14 +140,14 @@
                 >YES, START NEW</b-button
               >
 
-              <b-button id="btn-no"
+              <b-button
+                id="btn-no"
                 class="mt-3 px-1"
                 block
                 @click="$bvModal.hide('modal-center')"
                 >NO, CANCEL</b-button
               >
-              </div>
-             
+            </div>
           </b-modal>
         </div>
       </div>
@@ -181,6 +184,8 @@ export default {
   },
   data: () => ({
     reset: false,
+    state: null,
+    wakeLock: null,
     numTitle: "numbers",
     mMTitle: "minMax",
     splTitle: "special",
@@ -320,7 +325,7 @@ export default {
   methods: {
     allFull(obj) {
       for (var o in obj) {
-        if ((!obj[o] && obj[o] !== 0) || obj[o] === "" ) return false;
+        if ((!obj[o] && obj[o] !== 0) || obj[o] === "") return false;
       }
       return true;
     },
@@ -334,15 +339,32 @@ export default {
     },
     async requestWakeLock() {
       try {
-        const wakeLock = await navigator.wakeLock.request("screen");
-        console.log("WakeLock:", wakeLock);
+        this.wakeLock = await navigator.wakeLock.request("screen");
+        // console.log("WakeLock:", this.wakeLock);
       } catch (err) {
         console.log(`${err.name}, ${err.message}`);
       }
     },
+    getState() {
+      if (document.visibilityState === "hidden") {
+        return "hidden";
+      }
+      if (document.hasFocus()) {
+        return "active";
+      }
+      return "passive";
+    },
   },
   created() {
     this.requestWakeLock();
+
+    this.state = document.visibilityState;
+    document.addEventListener("visibilitychange", () => {
+      // console.log(document.visibilityState);
+      if (document.visibilityState === "visible") {
+        this.requestWakeLock();
+      }
+    });
   },
 };
 </script>
@@ -377,9 +399,8 @@ export default {
 .final {
   font-size: 1rem;
   font-weight: 700;
-  color: #69747D;
-  opacity: 1 ;
-
+  color: #69747d;
+  opacity: 1;
 }
 
 .box-final {
@@ -390,7 +411,7 @@ export default {
   text-align: center;
   width: 100%;
   border-radius: 5px;
-  flex-grow:1;
+  flex-grow: 1;
 }
 
 #show-btn {
@@ -399,9 +420,8 @@ export default {
 }
 
 #modal-center {
-  color: #69747D;
+  color: #69747d;
   opacity: 1;
-
 }
 
 #btn-yes {
@@ -414,9 +434,9 @@ export default {
 }
 
 #btn-no {
-   width: 45%;
-  background: #69747D;
-  opacity: .5 ;
+  width: 45%;
+  background: #69747d;
+  opacity: 0.5;
   font-weight: 700;
   font-size: 1rem;
   border: none;
