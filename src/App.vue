@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="mt-4">
+  <div id="app" class="mt-4 vh-100">
     <b-container id="main-container">
       <b-container>
         <b-row class="no-gutters mb-2 ">
@@ -320,7 +320,7 @@ export default {
   methods: {
     allFull(obj) {
       for (var o in obj) {
-        if (!obj[o]) return false;
+        if ((!obj[o] && obj[o] !== 0) || obj[o] === "" ) return false;
       }
       return true;
     },

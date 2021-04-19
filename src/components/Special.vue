@@ -12,7 +12,7 @@
      </div>
 
      <div>
-      <b-form-input class="input mb-1" type="number" v-model.number="spl.full" :class="[ spl.full !== null  ? filledInput : '']" @change="updateFull()" ></b-form-input>
+      <b-form-input class="input mb-1" type="number" v-model.number="spl.full" :class="[ spl.full !== null  ? filledInput : '']" @change="updateFull()"  @submit="updateFull()"></b-form-input>
     </div>
 
      <div>
@@ -72,6 +72,11 @@ export default {
     },
     updateFull() {
       if(this.spl.full === 0) {
+        this.updateObject()
+         return
+       } else if (this.spl.full === "") {
+         this.spl.full = null;
+         this.updateObject()
          return
        }
       this.spl.full = Number(this.spl.full) + 30;
@@ -79,18 +84,28 @@ export default {
 
     },
      updatePoker() {
-       if(this.spl.poker === 0) {
+        if(this.spl.poker === 0) {
+        this.updateObject()
+         return
+       } else if (this.spl.poker === "") {
+         this.spl.poker = null;
+         this.updateObject()
          return
        }
-      this.spl.poker = Number(this.spl.poker) + 40;
+      this.spl.poker = Number(this.spl.poker) + 30;
       this.updateObject()
 
     },
      updateJamb() {
-       if(this.spl.jamb === 0) {
+        if(this.spl.jamb === 0) {
+        this.updateObject()
+         return
+       } else if (this.spl.jamb === "") {
+         this.spl.jamb = null;
+         this.updateObject()
          return
        }
-      this.spl.jamb = Number(this.spl.jamb) + 50;
+      this.spl.jamb = Number(this.spl.jamb) + 30;
       this.updateObject()
 
     },

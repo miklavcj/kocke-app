@@ -7,7 +7,7 @@ module.exports = {
   short_name: "   ",
   themeColor: "#ffffff",
   msTileColor: '#ffffff',
-  "icons": [
+  icons: [
       {
           "src": "./img/kocke-logo-final.png",
           "sizes": "512x512",
